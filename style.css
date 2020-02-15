@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+    background-color: #3c546b;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.Home {
+    width: 900px;
+    height: 450px;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(#535353,#212122);
+    text-align: center;
+}
+
+header {
+    background: linear-gradient(to right, rgb(231, 231, 231),rgb(56, 56, 56));
+    margin: 0;
+    padding: 22px;
+    height:33px;
+    display: block;
+}
+
+.inOneLine {
+    top: 50%;
+    margin-right: 40px;
+    display: inline;
+}
+
+header h1 {
+    color: rgb(56, 56, 56);
+    position: absolute;
+    top: 1px;
+    left: 50px;
+    display: inline;
+}
+a {
+    color: inherit;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PSP Shaft Condition</title>
+        <link rel="stylesheet" href="shaftConditionStyle.css">
+    </head>
+    <body>
+        <header>
+            <h1>Prediction Shaft Project</h1>
+            <a href="http://host:Port/aboutUs">
+                <div class="inOneLine" style="float: right"><h2 class="inOneLine" style="color: rgb(231, 231, 231)">About Us</h1></div>
+            </a>
+            <a href="http://host:Port/shaftCondition">
+                <div class="inOneLine" style="float: right;"><h2 class="inOneLine" style="color: rgb(231, 231, 231)">Shaft Condition</h2></div>
+            </a>
+            <a href="http://host:Port">
+                <div class="inOneLine" style="float: right;"><h2 class="inOneLine" style="color: rgb(231, 231, 231)">Home</h2"></div>
+            </a>
+        </header>
+        <main>
+            <div class="messagebox">
+                <input type="text" id="user" value="UserName">
+                <input type="password" id="key" value="Key">
+                <button onclick="login();">Login</button><br>
+                <button onclick="startMotor();">Start Motor</button>
+                <button onclick="stopMotor();">Stop Motor</button><br>
+                <button onclick="adjustSpeed();">Adjust Speed</button>
+                <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                <p style="color: white">Value: <span id="demo" style="color: white"></span></p>
+            </div>
+            </div>
+            <div class="display_message_h">
+                <h2>Receiving Message:</h2>
+            </div>
+            <div id="out_messages" class="display_message"></div>
+            <div id="chartContainer" class="chartContainerCss"></div>
+ 
+        </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+        <script src="mqttScript.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script>
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            output.innerHTML = slider.value;
+            var yTempVal = 0;
+
+            slider.oninput = function() {
+                output.innerHTML = this.value;
+                yTempVal = this.value - 50;
+            }
+
+            window.onload = function () {
+                var dps = [];
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    backgroundColor: "#d4d4d4",
+                    exportEnabled: true,
+                    title :{
+                        text: "Rotation Speed"
+                    },
+                    axisY: {
+                        includeZero: true
+                    },
+                    data: [{
+                        type: "spline",
+                        markerSize: 0,
+                        dataPoints: dps 
+                    }]
+                });
+                
+                var xVal = 0;
+                var yVal = 100;
+                var updateInterval = 250;
+                var dataLength = 200; // number of dataPoints visible at any point
+                
+                var updateChart = function (count) {
+                    count = count || 1;
+                    // count is number of times loop runs to generate random dataPoints.
+                    for (var j = 0; j < count; j++) {
+                        // yVal = yVal + Math.round(5 + Math.random() *(-5-5));
+                        yVal = 50 + yTempVal;
+                        dps.push({
+                            x: xVal,
+                            y: yVal
+                        });
+                        xVal++;
+                    }
+                    if (dps.length > dataLength) {
+                        dps.shift();
+                    }
+                    chart.render();
+                };
+                
+                updateChart(dataLength); 
+                setInterval(function(){ updateChart() }, updateInterval); 
+            
+            }
+            </script>
+    </body>
+</html>

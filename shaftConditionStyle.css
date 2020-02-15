@@ -1,0 +1,160 @@
+body {
+    text-align: center;
+    background-color: #3c546b;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+input {
+    font-size: 18px;
+}
+
+.messagebox {
+    width: 320px;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 30px;
+    position: absolute;
+    top: 530px;
+    left: 27%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(#464545,#222122);
+    text-align: center;
+}
+
+.messagebox input[type = "password"] {
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.messagebox input[type = "password"]:focus {
+    width: 280px;
+    border-color: #2ecc71;
+}
+
+.messagebox input[type = "text"] {
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.messagebox input[type = "text"]:focus {
+    width: 280px;
+    border-color: #2ecc71;
+}
+
+.messagebox button{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.messagebox button:hover{
+    background: #2ecc71;
+}
+
+.display_message {
+    width: 33%;
+    height: 320px;
+    padding: 20px;
+    padding-left: 30px;
+    position: absolute;
+    top: 350px;
+    left: 69%;
+    transform: translate(-50%,-50%);
+    background: rgb(70, 70, 70);
+    color: white;
+    text-align: left;
+    overflow:auto;
+}
+
+.display_message_h h2{
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 100px;
+    left: 62%;
+}
+
+header {
+    background: linear-gradient(to right, rgb(231, 231, 231),rgb(56, 56, 56));
+    margin: 0;
+    padding: 22px;
+    height:33px;
+    border-width: 100%;
+    display: block;
+}
+
+.inOneLine {
+    top: 50%;
+    margin-right: 40px;
+    display: inline;
+}
+
+header h1 {
+    color: rgb(44, 41, 41);
+    position: absolute;
+    top: 1px;
+    left: 50px;
+    display: inline;
+}
+a {
+    color: inherit;
+}
+.slidecontainer {
+    width: 100%;
+}
+  
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider:hover {
+    opacity: 1;
+}
+
+.chartContainerCss {
+    height: 370px;
+    width: 41%;
+    position: absolute;
+    top: 580px;
+    left: 48.5%;
+}
